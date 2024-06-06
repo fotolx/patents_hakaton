@@ -1,0 +1,19 @@
+services:
+  patent_web:
+    # Берем Dockerfile из каталога
+    build: ./patents
+    # Запускаем тестовый сервер
+    command: python manage.py runserver 0.0.0.0:8001
+    # куда будут помещены данные из каталога app
+    volumes:
+      - ./patents/:/usr/src/app/
+    # Открываем порт 8000 внутри и снаружи
+    ports:
+      - 8001:8001
+    expose:
+      - 8001
+    # Файл содержащий переменные для контейнера
+    #env_file:
+    #  - ./.env.dev
+    #stdin_open: true # docker run -i
+    #tty: true        # docker run -t
