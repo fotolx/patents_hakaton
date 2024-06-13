@@ -65,7 +65,15 @@ urlpatterns = [
     # path('password-change/', ChangePasswordView.as_view(), name='password_change'),
 
     # Static pages
-    path("", TemplateView.as_view(template_name="users/home.html"), name='main'),
+    path("", TemplateView.as_view(template_name="patent/links.html"), name='main'),
+    path("region-bg/", TemplateView.as_view(template_name="patent/region-bg.html"), name='region-bg'),
+    path("country-all/", TemplateView.as_view(template_name="patent/country-all.html"), name='country-all'),
+    path("country/", TemplateView.as_view(template_name="patent/country.html"), name='country'),
+    path("date-regions", TemplateView.as_view(template_name="patent/date-regions.html"), name='date-regions'),
+    path("enter/", TemplateView.as_view(template_name="patent/enter.html"), name='enter'),
+    path("hear-map/", TemplateView.as_view(template_name="patent/hear-map.html"), name='hear-map'),
+    path("recover/", TemplateView.as_view(template_name="patent/recover.html"), name='recover'),
+    # path("enter/", TemplateView.as_view(template_name="patent/enter.html"), name='enter'),
     # path("dashboard/", TemplateView.as_view(template_name="russpass/dashboard.html"), name='dashboard'),
     # path("marshrut/", TemplateView.as_view(template_name="russpass/marshrut.html"), name='marshrut'),
     # path("park/", TemplateView.as_view(template_name="russpass/park.html"), name='park'),
