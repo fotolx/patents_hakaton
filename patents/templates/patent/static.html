@@ -1,3 +1,5 @@
+{% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -5,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сервис анализа патентной активности компаний Москвы</title>
-    <link rel="icon" type="image/svg+xml" href="img/icon/favicon.svg">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/icon/favicon.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -20,7 +22,7 @@
             <div class="container container-dashbord">
                 <div class="wrapper-dashbord">
                     <div class="main-navigation">
-                        <img src="img/icon/logo.svg" class="img-logo" alt="logo">
+                        <img src="{% static 'img/icon/logo.svg' %}" class="img-logo" alt="logo">
                         <nav class="menu">
                             <ul class="list-menu">
                                 <li class="list-menu__item list-menu__item--active">
@@ -117,21 +119,21 @@
                                 </li>
                             </ul>
                             <div class="online-person">
-                                <img src="img/all/person.svg" class="online-person__img" alt="person">
+                                <img src="{% static 'img/all/person.svg' %}" class="online-person__img" alt="person">
                             </div>
                         </nav>
                     </div>
                     <div class="account">
                         <div class="account-header">
                             <div class="account-header__person">
-                                <img src="img/all/person-2.svg" class="img-account" alt="person">
+                                <img src="{% static 'img/all/person-2.svg' %}" class="img-account" alt="person">
                                 <div class="account-header__content">
                                     <div class="account-header__title">Мария Иванова</div>
                                     <div class="account-header__text">Должность</div>
                                 </div>
                             </div>
                             <div class="account-header__btn">
-                                <img src="img/icon/account-icon.svg" class="account-header__icon" alt>
+                                <img src="{% static 'img/icon/account-icon.svg' %}" class="account-header__icon" alt>
                             </div>
                         </div>
                         <div class="account-wrap-body">
@@ -195,20 +197,20 @@
                     <div class="date-account">
                         <div class="date-account-header">
                             <div class="account-btn">
-                                <img src="img/icon/account-icon.svg" class="account-btn__icon" alt>
+                                <img src="{% static 'img/icon/account-icon.svg' %}" class="account-btn__icon" alt>
                             </div>
                             <div class="date-account-header__content">
                                 <div class="account-btn">
-                                    <img src="img/icon/quenstion.svg" class="account-btn__icon" alt>
+                                    <img src="{% static 'img/icon/quenstion.svg' %}" class="account-btn__icon" alt>
                                 </div>
                                 <div class="account-btn">
-                                    <img src="img/icon/plus.svg" class="account-btn__icon" alt>
+                                    <img src="{% static 'img/icon/plus.svg' %}" class="account-btn__icon" alt>
                                 </div>
                             </div>
                         </div>
                         <div class="date-account-body">
                             <a href="#modal-load" class="btn-load">
-                                <img src="img/icon/log-in.svg" class="btn-load__img" alt>
+                                <img src="{% static 'img/icon/log-in.svg' %}" class="btn-load__img" alt>
                                 <span>Новая загрузка</span>
                             </a>
                             <div class="table-date">
@@ -216,7 +218,7 @@
                                     <input type="checkbox" name="" class="table-date__checkbox" id="table-date-checkbox-1" checked>
                                     <label for="table-date-checkbox-1" class="label-checkbox"></label>
                                     <div class="table-date__static">
-                                        <img src="img/icon/file-static.svg" class="table-date__img" alt>
+                                        <img src="{% static 'img/icon/file-static.svg' %}" class="table-date__img" alt>
                                     </div>
                                     <div class="table-date__title">Загрузка #2024-0607-01</div>
                                     <div class="table-date__text">Отчёт «Патентная активность за май 2024»</div>
@@ -233,7 +235,7 @@
                                     <input type="checkbox" name="" class="table-date__checkbox" id="table-date-checkbox-2" checked>
                                     <label for="table-date-checkbox-2" class="label-checkbox"></label>
                                     <div class="table-date__static">
-                                        <img src="img/icon/file-static.svg" class="table-date__img" alt>
+                                        <img src="{% static 'img/icon/file-static.svg' %}" class="table-date__img" alt>
                                     </div>
                                     <div class="table-date__title">Загрузка #2024-0607-01</div>
                                     <div class="table-date__text">Отчёт «Патентная активность за май 2024»</div>
@@ -250,7 +252,7 @@
                                     <input type="checkbox" name="" class="table-date__checkbox" id="table-date-checkbox-3" checked>
                                     <label for="table-date-checkbox-3" class="label-checkbox"></label>
                                     <div class="table-date__static">
-                                        <img src="img/icon/file-static.svg" class="table-date__img" alt>
+                                        <img src="{% static 'img/icon/file-static.svg' %}" class="table-date__img" alt>
                                     </div>
                                     <div class="table-date__title">Загрузка #2024-0607-01</div>
                                     <div class="table-date__text">Отчёт «Патентная активность за май 2024»</div>
@@ -267,7 +269,7 @@
                                     <input type="checkbox" name="" class="table-date__checkbox" id="table-date-checkbox-4">
                                     <label for="table-date-checkbox-4" class="label-checkbox"></label>
                                     <div class="table-date__static">
-                                        <img src="img/icon/file-static.svg" class="table-date__img" alt>
+                                        <img src="{% static 'img/icon/file-static.svg' %}" class="table-date__img" alt>
                                     </div>
                                     <div class="table-date__title">Загрузка #2024-0607-04</div>
                                     <div class="table-date__text">Отчёт «Патентная активность за май 2024»</div>
@@ -284,7 +286,7 @@
                                     <input type="checkbox" name="" class="table-date__checkbox" id="table-date-checkbox-4">
                                     <label for="table-date-checkbox-4" class="label-checkbox"></label>
                                     <div class="table-date__static">
-                                        <img src="img/icon/file-static.svg" class="table-date__img" alt>
+                                        <img src="{% static 'img/icon/file-static.svg' %}" class="table-date__img" alt>
                                     </div>
                                     <div class="table-date__title">Загрузка #2024-0607-04</div>
                                     <div class="table-date__text">Отчёт «Патентная активность за май 2024»</div>
@@ -301,7 +303,7 @@
                                     <input type="checkbox" name="" class="table-date__checkbox" id="table-date-checkbox-4">
                                     <label for="table-date-checkbox-4" class="label-checkbox"></label>
                                     <div class="table-date__static">
-                                        <img src="img/icon/file-static.svg" class="table-date__img" alt>
+                                        <img src="{% static 'img/icon/file-static.svg' %}" class="table-date__img" alt>
                                     </div>
                                     <div class="table-date__title">Загрузка #2024-0607-04</div>
                                     <div class="table-date__text">Отчёт «Патентная активность за май 2024»</div>
@@ -318,7 +320,7 @@
                                     <input type="checkbox" name="" class="table-date__checkbox" id="table-date-checkbox-4">
                                     <label for="table-date-checkbox-4" class="label-checkbox"></label>
                                     <div class="table-date__static">
-                                        <img src="img/icon/file-static.svg" class="table-date__img" alt>
+                                        <img src="{% static 'img/icon/file-static.svg' %}" class="table-date__img" alt>
                                     </div>
                                     <div class="table-date__title">Загрузка #2024-0607-04</div>
                                     <div class="table-date__text">Отчёт «Патентная активность за май 2024»</div>
@@ -352,7 +354,7 @@
                     <div class="modal-load-body">
                         <input type="file" name="modal-file" class="modal-load-file" id="modal-load-file">
                         <label for="modal-load-file">
-                            <img src="img/icon/load-file.svg" class="modal-load-file-img" alt="">
+                            <img src="{% static 'img/icon/load-file.svg' %}" class="modal-load-file-img" alt="">
                         </label>
                         <div class="modal-title">Переместите сюда ваши файлы, чтобы начать загрузку</div>
                         <div class="modal-text">Или кликните для выбора</div>
@@ -362,7 +364,7 @@
         </div>
         <!-- MODAL-LOAD -->
     </main>
-    <script src="js/open-menu.js"></script>
+    <script src="{% static 'js/open-menu.js' %}"></script>
 </body>
 
 </html>

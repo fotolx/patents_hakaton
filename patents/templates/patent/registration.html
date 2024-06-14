@@ -1,3 +1,5 @@
+{% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -5,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сервис анализа патентной активности компаний Москвы</title>
-    <link rel="icon" type="image/svg+xml" href="img/icon/favicon.svg">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/icon/favicon.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -32,7 +34,7 @@
                                                class="registration-form__input" 
                                                placeholder="Иван Иванов" 
                                                required>
-                                        <img src="img/icon/person.png" class="registration-form__icon" alt>
+                                        <img src="{% static 'img/icon/person.png' %}" class="registration-form__icon" alt>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -43,7 +45,7 @@
                                                class="registration-form__input" 
                                                placeholder="ivan.ivanov@mail.ru" 
                                                required>
-                                        <img src="img/icon/email.png" class="registration-form__icon" alt>
+                                        <img src="{% static 'img/icon/email.png' %}" class="registration-form__icon" alt>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -54,7 +56,7 @@
                                                class="registration-form__input" 
                                                placeholder="Введите Ваш пароль..." 
                                                required>
-                                        <img src="img/icon/password.png" class="registration-form__icon" alt>
+                                        <img src="{% static 'img/icon/password.png' %}" class="registration-form__icon" alt>
                                     </div>
                                 </div>
                                 <div class="form-group-btn">
