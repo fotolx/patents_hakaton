@@ -77,6 +77,7 @@ urlpatterns = [
     path("registration/", TemplateView.as_view(template_name="patent/registration.html"), name='registration'),
     path("stat/", TemplateView.as_view(template_name="patent/static.html"), name='stat'),
     path("subscribe/", TemplateView.as_view(template_name="patent/subscribe.html"), name='subscribe'),
+    path("doc-rf/", TemplateView.as_view(template_name="patent/doc-rf.html"), name='doc-rf'),
     # path("enter/", TemplateView.as_view(template_name="patent/enter.html"), name='enter'),
     # path("dashboard/", TemplateView.as_view(template_name="russpass/dashboard.html"), name='dashboard'),
     # path("marshrut/", TemplateView.as_view(template_name="russpass/marshrut.html"), name='marshrut'),
