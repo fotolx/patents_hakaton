@@ -24,6 +24,7 @@ from auth_users.forms import LoginForm, RegisterForm
 from auth_users.views import CustomLoginView, ResetPasswordView, profile, ChangePasswordView, ChangePasswordView, CustomLoginView, ResetPasswordView, RegisterView 
 # from .views import ChangePasswordView, CustomLoginView, ResetPasswordView, home, RegisterView 
 from django.views.generic import TemplateView
+from patent.views import *
 
 urlpatterns = [
     # path('', AdsList.as_view()), 
@@ -75,9 +76,12 @@ urlpatterns = [
     path("recover/", TemplateView.as_view(template_name="patent/recover.html"), name='recover'),
     path("region/", TemplateView.as_view(template_name="patent/region.html"), name='region'),
     path("registration/", TemplateView.as_view(template_name="patent/registration.html"), name='registration'),
-    path("stat/", TemplateView.as_view(template_name="patent/static.html"), name='stat'),
+    # path("stat/", TemplateView.as_view(template_name="patent/static.html"), name='stat'),
+    path("stat/", simple_upload, name='stat'),
+    #path('upload/', login_required(simple_upload), name='upload'),
     path("subscribe/", TemplateView.as_view(template_name="patent/subscribe.html"), name='subscribe'),
     path("doc-rf/", TemplateView.as_view(template_name="patent/doc-rf.html"), name='doc-rf'),
+    path("analitic-klas/", TemplateView.as_view(template_name="patent/analitic-klas.html"), name='analitic-klas'),
     # path("enter/", TemplateView.as_view(template_name="patent/enter.html"), name='enter'),
     # path("dashboard/", TemplateView.as_view(template_name="russpass/dashboard.html"), name='dashboard'),
     # path("marshrut/", TemplateView.as_view(template_name="russpass/marshrut.html"), name='marshrut'),
