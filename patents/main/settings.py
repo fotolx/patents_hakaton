@@ -94,6 +94,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'HOST': '87.242.94.6',
+    #     'PORT': '5432',
+    #     'NAME': 'patent_stats',
+    #     'USER': 'patent',
+    #     'PASSWORD': 'gUDm_1t8',
+    #     'OPTIONS': {
+    #         'sslmode': 'verify-ca',
+    #         'sslrootcert': BASE_DIR / 'ca-bundle.pem',
+    #     },
+    # },
 }
 
 AUTHENTICATION_BACKENDS = [

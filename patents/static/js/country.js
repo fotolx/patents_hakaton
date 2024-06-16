@@ -1,6 +1,6 @@
 anychart.onDocumentReady(function () {
 
-    fetch('region.json')
+    fetch('/static/js/region.json')
         .then(response => response.json())
         .then(data => {
 

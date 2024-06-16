@@ -3,27 +3,6 @@ from import_export import resources
 
 # Create your models here.
 class IndustrialDesign(models.Model):
-    # worker_id = models.IntegerField(verbose_name='Табельный номер')
-    # fio = models.CharField(max_length=50, verbose_name='ФИО')
-    # email = models.EmailField()
-    # department = models.CharField(max_length=150, verbose_name='Отдел', blank=True)
-    # period = models.DateField(verbose_name='Период')
-    # msgs_sent = models.IntegerField(verbose_name='Количество отправленных сообщений')
-    # msgs_recvd = models.IntegerField(verbose_name='Количество получаемых сообщений')
-    # msgs_sent_recipients = models.IntegerField(verbose_name='Количество адресатов в отправляемых сообщениях')
-    # msgs_sent_recipients_hidden = models.IntegerField(verbose_name='Количество сообщений с адресатами в поле «скрытая копия»')
-    # msgs_sent_recipients_copy = models.IntegerField(verbose_name='Количество сообщений с адресатами в поле «копия»')
-    # msgs_late_read = models.IntegerField(verbose_name='Количество сообщений, прочитанных позднее времени получения на 4 часа')
-    # msg_days2read = models.IntegerField(verbose_name='Количество дней между датой получения и датой прочтения сообщения')
-    # msg_responded = models.IntegerField(verbose_name='Количество сообщений, на которые произведен ответ')
-    # msgs_sent_length = models.IntegerField(verbose_name='Количество символов текста в исходящих сообщениях')
-    # msgs_sent_afterwork = models.IntegerField(verbose_name='Количество сообщений, отправленных вне рамок рабочего дня')
-    # msgs_sent_rcvd = models.FloatField(verbose_name='Соотношение количества полученных и отправленных сообщений')
-    # msgs_sent_rcvd_bytes = models.FloatField(verbose_name='Соотношение объема в байтах получаемых и отправляемых сообщений')
-    # msgs_rcvd_question_no_respns = models.IntegerField(verbose_name='Количество входящих сообщений без ответа, имеющих вопросительные знаки в тексте')
-    # dismiss = models.FloatField(verbose_name='Вероятность увольнения', default=-1.0)
-
-
     registration_number = models.IntegerField()
     registration_date = models.DateField(verbose_name='Дата регистрации')
     application_number = models.IntegerField()
@@ -35,34 +14,34 @@ class IndustrialDesign(models.Model):
     correspondence_address = models.CharField(max_length=500, verbose_name='Почтовый адрес')
     correspondence_address_in_latin = models.CharField(max_length=500, verbose_name='Почтовый адрес на латинице')
     industrial_design_name = models.CharField(max_length=500, verbose_name='Название')
-    patent_starting_date = models.DateField()
-    Crimean_industrial_design_application_number_for_state_registration_in_Ukraine = models.CharField(max_length=100)
-    Crimean_industrial_design_application_date_for_state_registration_in_Ukraine = models.DateField()
-    Crimean_industrial_design_patent_number_in_Ukraine = models.CharField(max_length=100)
-    receipt_date_of_additional_data_to_application = models.DateField()
-    date_of_application_to_which_additional_data_has_been_received = models.DateField()
-    number_of_application_to_which_additional_data_has_been_received = models.CharField(max_length=100)
-    initial_application_number = models.CharField(max_length=100)
-    initial_application_date = models.DateField()
-    initial_application_priority_date = models.DateField()
-    previous_application_number = models.CharField(max_length=100)
-    previous_application_date = models.DateField()
-    paris_convention_priority_number = models.CharField(max_length=100)
-    paris_convention_priority_date = models.DateField()
-    paris_convention_priority_country_code = models.CharField(max_length=100)
-    patent_grant_publish_date = models.DateField()
-    patent_grant_publish_number = models.IntegerField()
-    revoked_patent_number = models.IntegerField()
-    expiration_date = models.DateField()
-    numbers_of_list_of_essential_features_for_which_patent_term_is_prolonged = models.CharField(max_length=100)
-    industrial_designs_names_and_number_for_which_patent_term_is_prolonged = models.CharField(max_length=10)
+    patent_starting_date = models.CharField(max_length=20)
+    Crimean_industrial_design_application_number_for_state_registration_in_Ukraine = models.CharField(max_length=100, null=True)
+    Crimean_industrial_design_application_date_for_state_registration_in_Ukraine = models.DateField(null=True)
+    Crimean_industrial_design_patent_number_in_Ukraine = models.CharField(max_length=100, null=True)
+    receipt_date_of_additional_data_to_application = models.DateField(null=True)
+    date_of_application_to_which_additional_data_has_been_received = models.DateField(null=True)
+    number_of_application_to_which_additional_data_has_been_received = models.CharField(max_length=100,null=True)
+    initial_application_number = models.CharField(max_length=100, null=True)
+    initial_application_date = models.DateField(null=True)
+    initial_application_priority_date = models.DateField(null=True)
+    previous_application_number = models.CharField(max_length=100,null=True)
+    previous_application_date = models.DateField(null=True)
+    paris_convention_priority_number = models.CharField(max_length=100,null=True)
+    paris_convention_priority_date = models.CharField(max_length=20,null=True)
+    paris_convention_priority_country_code = models.CharField(max_length=100, null=True)
+    patent_grant_publish_date = models.CharField(max_length=20, null=True)
+    patent_grant_publish_number = models.IntegerField(null=True)
+    revoked_patent_number = models.IntegerField(null=True)
+    expiration_date = models.CharField(max_length=20,null=True)
+    numbers_of_list_of_essential_features_for_which_patent_term_is_prolonged = models.CharField(max_length=100,null=True)
+    industrial_designs_names_and_number_for_which_patent_term_is_prolonged = models.CharField(max_length=10, null=True)
     actual = models.CharField(max_length=100)
-    publication_URL = models.CharField(max_length=1024)
-    actual_date = models.DateField()
-    mkpo = models.CharField(max_length=10)
+    publication_URL = models.CharField(max_length=1024,null=True)
+    actual_date = models.CharField(max_length=20)
+    mkpo = models.CharField(max_length=10,null=True)
 
     def __str__(self) -> str:
-            return self.registration_number+' ('+self.registration_date+') '+ self.mkpo +' ['+str(self.authors)+']'
+            return str(self.registration_number)+' ('+str(self.registration_date)+') '+ self.mkpo +' ['+str(self.authors)+']'
  
     def prepare_data(self) -> list:
         x = [self.id,
@@ -105,14 +84,7 @@ class IndustrialDesign(models.Model):
         return x
 
 class IndustrialDesignResource(resources.ModelResource):
-    # def before_import_row(self, row, **kwargs):
-    #     worker_id = row["worker_id"]
-    #     worker_name = row["fio"]
-    #     worker_email = row["email"]
-    #     worker_department = row["department"]
-    #     Worker.objects.get_or_create(worker_id=worker_id, name=worker_name, email=worker_email, department=worker_department,
-    #                                  defaults={"worker_id": worker_id,"name": worker_name, "email": worker_email, "department": worker_department})
-
+    
     def skip_row(self, instance, original, row, import_validation_errors=None):
         if IndustrialDesign.objects.filter(registration_number=row["registration_number"]).count()>0:
             return True

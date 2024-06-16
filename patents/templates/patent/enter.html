@@ -51,11 +51,11 @@
                                 <div class="form-group-btn">
                                     <input type="radio" name="memory" class="registration-form__radio" id="memory">
                                     <label for="memory" class="memory-label">Запомнить меня</label>
-                                    <a href="recover.html" class="memory-link-disabled">Я не помню пароль</a>
+                                    <a href="{% url 'recover' %}" class="memory-link-disabled">Я не помню пароль</a>
                                 </div>
                                 <div class="form-group-btn">
                                     <button type="submit" class="btn">Войти в систему</button>
-                                    <a href="registration.html" class="btn btn--active">Зарегистрироваться</a>
+                                    <a href="{% url 'registration' %}" class="btn btn--active">Зарегистрироваться</a>
                                 </div>
                             </form>
                         </div>

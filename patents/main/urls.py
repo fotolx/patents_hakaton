@@ -66,7 +66,7 @@ urlpatterns = [
     # path('password-change/', ChangePasswordView.as_view(), name='password_change'),
 
     # Static pages
-    path("", TemplateView.as_view(template_name="patent/links.html"), name='main'),
+    path("links/", TemplateView.as_view(template_name="patent/links.html"), name='links'),
     path("region-bg/", TemplateView.as_view(template_name="patent/region-bg.html"), name='region-bg'),
     path("country-all/", TemplateView.as_view(template_name="patent/country-all.html"), name='country-all'),
     path("country/", TemplateView.as_view(template_name="patent/country.html"), name='country'),
@@ -80,8 +80,10 @@ urlpatterns = [
     path("stat/", simple_upload, name='stat'),
     #path('upload/', login_required(simple_upload), name='upload'),
     path("subscribe/", TemplateView.as_view(template_name="patent/subscribe.html"), name='subscribe'),
-    path("doc-rf/", TemplateView.as_view(template_name="patent/doc-rf.html"), name='doc-rf'),
+    # path("doc-rf/", TemplateView.as_view(template_name="patent/doc-rf.html"), name='doc-rf'),
+    path("doc-rf/", IndustrialDesignList.as_view(template_name="patent/doc-rf.html"), name='doc-rf'),
     path("analitic-klas/", TemplateView.as_view(template_name="patent/analitic-klas.html"), name='analitic-klas'),
+    path("", TemplateView.as_view(template_name="patent/analitic-klas.html"), name='main'),
     # path("enter/", TemplateView.as_view(template_name="patent/enter.html"), name='enter'),
     # path("dashboard/", TemplateView.as_view(template_name="russpass/dashboard.html"), name='dashboard'),
     # path("marshrut/", TemplateView.as_view(template_name="russpass/marshrut.html"), name='marshrut'),
