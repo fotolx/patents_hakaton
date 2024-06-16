@@ -352,12 +352,15 @@
                         </svg>
                     </a>
                     <div class="modal-load-body">
-                        <input type="file" name="modal-file" class="modal-load-file" id="modal-load-file">
-                        <label for="modal-load-file">
-                            <img src="{% static 'img/icon/load-file.svg' %}" class="modal-load-file-img" alt="">
-                        </label>
-                        <div class="modal-title">Переместите сюда ваши файлы, чтобы начать загрузку</div>
-                        <div class="modal-text">Или кликните для выбора</div>
+                        <form action="#" method="post">
+                            <input type="file" name="modal-file" class="modal-load-file" id="modal-load-file">
+                            <label for="modal-load-file" class="label-modal">
+                                <img src="img/icon/load-file.svg" class="modal-load-file-img" alt="">
+                            </label>
+                            <div class="modal-title">Переместите сюда ваши файлы, чтобы начать загрузку</div>
+                            <div class="modal-text">Или кликните для выбора</div>
+                            <button type="submit" class="btn btn-modal">Отправить</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -365,6 +368,7 @@
         <!-- MODAL-LOAD -->
     </main>
     <script src="{% static 'js/open-menu.js' %}"></script>
+    <script src="{% static 'js/modal.js' %}"></script>
 </body>
 
 </html>
