@@ -1570,3 +1570,43 @@ a {
 }
 
 /*--- MODAL-LOAD ---*/
+
+/*--- PAGINATION---*/
+.pagination {
+  width: 250px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.pagination__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #303030;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #303030;
+}
+.pagination__link:hover {
+  background-color: #0154A6;
+  border: 1px solid #0154A6;
+  color: #fff;
+}
+.pagination__link--active {
+  background-color: #0154A6;
+  border: 1px solid #0154A6;
+  color: #fff;
+}
+.pagination__item:not(:last-child) {
+  margin-right: 8px;
+}
+.pagination__svg {
+  fill: #303030;
+}
+.pagination__link:hover .pagination__svg {
+  fill: #fff;
+}
+
+/*--- PAGINATION---*/
