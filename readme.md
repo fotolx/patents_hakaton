@@ -2,8 +2,9 @@
 ## Хакатон ЛЦТ 2024 июнь  
 ### Команда DS Crafters
 
-Прямой доступ к созданным страницам: http://patent.5d4.ru/links/
-Пример файла для импорта https://disk.yandex.ru/d/3XWfktN95Q-voQ
+Прямой доступ к созданным страницам: http://patent.5d4.ru/links/  
+Пример файла для импорта https://disk.yandex.ru/d/3XWfktN95Q-voQ  
+Файл экспортированный из системы с указанными ИНН компаний для промышленных образцов https://disk.yandex.ru/d/ajKPZPqxa3R-Mg  
 
 **TO-DO  
 - Make to-do list  

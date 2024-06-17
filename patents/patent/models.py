@@ -14,31 +14,32 @@ class IndustrialDesign(models.Model):
     correspondence_address = models.CharField(max_length=500, verbose_name='Почтовый адрес')
     correspondence_address_in_latin = models.CharField(max_length=500, verbose_name='Почтовый адрес на латинице')
     industrial_design_name = models.CharField(max_length=500, verbose_name='Название')
-    patent_starting_date = models.CharField(max_length=20)
-    Crimean_industrial_design_application_number_for_state_registration_in_Ukraine = models.CharField(max_length=100, null=True)
-    Crimean_industrial_design_application_date_for_state_registration_in_Ukraine = models.DateField(null=True)
+    patent_starting_date = models.CharField(max_length=200)
+    Crimean_industrial_design_application_number_for_state_registration_in_Ukraine = models.CharField(max_length=100, null=True,db_column='Crimean_industrial_design_application_number_for_state_registra')
+    Crimean_industrial_design_application_date_for_state_registration_in_Ukraine = models.DateField(null=True,db_column='Crimean_industrial_design_application_date_for_state_registrati')
     Crimean_industrial_design_patent_number_in_Ukraine = models.CharField(max_length=100, null=True)
     receipt_date_of_additional_data_to_application = models.DateField(null=True)
     date_of_application_to_which_additional_data_has_been_received = models.DateField(null=True)
-    number_of_application_to_which_additional_data_has_been_received = models.CharField(max_length=100,null=True)
+    number_of_application_to_which_additional_data_has_been_received = models.CharField(max_length=100,null=True,db_column='number_of_application_to_which_additional_data_has_been_receive')
     initial_application_number = models.CharField(max_length=100, null=True)
     initial_application_date = models.DateField(null=True)
     initial_application_priority_date = models.DateField(null=True)
     previous_application_number = models.CharField(max_length=100,null=True)
     previous_application_date = models.DateField(null=True)
     paris_convention_priority_number = models.CharField(max_length=100,null=True)
-    paris_convention_priority_date = models.CharField(max_length=20,null=True)
+    paris_convention_priority_date = models.CharField(max_length=200,null=True)
     paris_convention_priority_country_code = models.CharField(max_length=100, null=True)
-    patent_grant_publish_date = models.CharField(max_length=20, null=True)
+    patent_grant_publish_date = models.CharField(max_length=200, null=True)
     patent_grant_publish_number = models.IntegerField(null=True)
     revoked_patent_number = models.IntegerField(null=True)
-    expiration_date = models.CharField(max_length=20,null=True)
-    numbers_of_list_of_essential_features_for_which_patent_term_is_prolonged = models.CharField(max_length=100,null=True)
-    industrial_designs_names_and_number_for_which_patent_term_is_prolonged = models.CharField(max_length=10, null=True)
+    expiration_date = models.CharField(max_length=200,null=True)
+    numbers_of_list_of_essential_features_for_which_patent_term_is_prolonged = models.CharField(max_length=100,null=True,db_column='numbers_of_list_of_essential_features_for_which_patent_term_is_')
+    industrial_designs_names_and_number_for_which_patent_term_is_prolonged = models.CharField(max_length=10, null=True,db_column='industrial_designs_names_and_number_for_which_patent_term_is_pr')
     actual = models.CharField(max_length=100)
     publication_URL = models.CharField(max_length=1024,null=True)
-    actual_date = models.CharField(max_length=20)
+    actual_date = models.CharField(max_length=200)
     mkpo = models.CharField(max_length=10,null=True)
+    inn = models.CharField(max_length=20,null=True)
 
     def __str__(self) -> str:
             return str(self.registration_number)+' ('+str(self.registration_date)+') '+ self.mkpo +' ['+str(self.authors)+']'
@@ -57,12 +58,12 @@ class IndustrialDesign(models.Model):
             self.correspondence_address_in_latin,
             self.industrial_design_name,
             self.patent_starting_date,
-            self.Crimean_industrial_design_application_number_for_state_registration_in_Ukraine,
-            self.Crimean_industrial_design_application_date_for_state_registration_in_Ukraine,
+            self.Crimean_industrial_design_application_number_for_state_registra, #Crimean_industrial_design_application_number_for_state_registration_in_Ukraine,
+            self.Crimean_industrial_design_application_date_for_state_registrati, #Crimean_industrial_design_application_date_for_state_registration_in_Ukraine,
             self.Crimean_industrial_design_patent_number_in_Ukraine,
             self.receipt_date_of_additional_data_to_application,
             self.date_of_application_to_which_additional_data_has_been_received,
-            self.number_of_application_to_which_additional_data_has_been_received,
+            self.number_of_application_to_which_additional_data_has_been_receive, #number_of_application_to_which_additional_data_has_been_received,
             self.initial_application_number,
             self.initial_application_date,
             self.initial_application_priority_date,
@@ -75,12 +76,13 @@ class IndustrialDesign(models.Model):
             self.patent_grant_publish_number,
             self.revoked_patent_number,
             self.expiration_date,
-            self.numbers_of_list_of_essential_features_for_which_patent_term_is_prolonged,
-            self.industrial_designs_names_and_number_for_which_patent_term_is_prolonged,
+            self.numbers_of_list_of_essential_features_for_which_patent_term_is_, #numbers_of_list_of_essential_features_for_which_patent_term_is_prolonged,
+            self.industrial_designs_names_and_number_for_which_patent_term_is_pr, #industrial_designs_names_and_number_for_which_patent_term_is_prolonged,
             self.actual,
             self.publication_URL,
             self.actual_date,
-            self.mkpo]
+            self.mkpo,
+            self.inn]
         return x
 
 class IndustrialDesignResource(resources.ModelResource):
