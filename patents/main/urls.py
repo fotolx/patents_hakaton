@@ -94,4 +94,5 @@ urlpatterns = [
     # path("constructor/", TemplateView.as_view(template_name="russpass/constructor.html"), name='constructor'),
     # path("start/", TemplateView.as_view(template_name="russpass/start.html"), name='start'),
     # path("route_add/", TemplateView.as_view(template_name="russpass/dyn/route_add.html"), name='route_add'),
+    path("404/", TemplateView.as_view(template_name="patent/404.html"), name='404'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
