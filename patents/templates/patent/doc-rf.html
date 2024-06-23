@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load tags %}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -231,6 +232,12 @@
                                         <div class="nav-country-el"><img src="{% static 'img/icon/30.svg' %}" class="nav-country__img"></div>
                                         <div class="nav-country-el"><img src="{% static 'img/icon/31.svg' %}" class="nav-country__img"></div>
                                     </div>
+                                    <div class="nav-country__item">
+                                    <form method="GET">
+                                        {{ filterset.form.as_div }}
+                                        <input type="submit" value="Найти">
+                                       </form>
+                                    </div>
                                 </div>
                                 <div class="table-doc">
                                     <div class="table-doc__thead">
@@ -257,7 +264,7 @@
                                         <div class="table-inn thead-style">ИНН</div>
                                     </div>
                                     <div class="table-doc__tbody">
-                                        {% for patent in patents %}
+                                        {% for patent in object_list %}
                                         <div class="table-doc__item">
                                             <div class="table-doc__column-1">
                                                 <input type="checkbox" name="" class="table-doc-checked" id="doc-checked-1">
@@ -289,7 +296,6 @@
                                                     </svg>
                                                      Опубликован
                                                 </span>
-
                                             {% else %}
                                                 <span class="istek">
                                                     <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -298,51 +304,53 @@
                                                      Истёк
                                                 </span>
                                             {% endif %}
-
-          
                                             </div>
                                             <div class="table-doc__column-9">{{ patent.paris_convention_priority_country_code }}</div>
-                                            <div class="table-doc__column-10">4372984489</div>
+                                            <div class="table-doc__column-10">{{ patent.inn }}</div>
                                         </div>
                                         {% endfor %}
+                                        <!--PAGINATION 3--> 
                                         {% if is_paginated %}  <!-- Pagination block -->
-                                        <!--PAGINATION-->      
+                                        {% get_proper_elided_page_range paginator page_obj.number as page_range %} <!-- here -->
                                         <div class="pagination">
-                                           {% if page_obj.has_previous %}
-                                           <div class="pagination__item">
-                                               <a href="?page={{ page_obj.previous_page_number }}" class="pagination__link">
-                                                   <svg class="pagination__svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
-                                                       <path
-                                                           d="M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM2 7L1 7L1 9L2 9L2 7Z"/>
-                                                   </svg>
-                                               </a>
-                                           </div>
-                                           {% endif %}
-                                           <!-- Current page and neigbours -->
-                                           {% for num in page_obj.paginator.page_range %}
-                                               <div class="pagination__item">
-                                           {% if page_obj.number == num %}
-                                               <a href="?page={{ num }}" class="pagination__link pagination__link--active">{{ num }}</a>
-                                           {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                                               <a href="?page={{ num }}" class="pagination__link">{{ num }}</a>
-                                           {% endif %}
-                                               </div>
-                                           {% endfor %}
-                                           <!-- Next page link -->
-                                           {% if page_obj.has_next %}
-                                           <div class="pagination__item">
-                                               <a href="?page={{ page_obj.next_page_number }}" class="pagination__link">
-                                                   <svg class="pagination__svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
-                                                       <path
-                                                           d="M8.70711 7.29289C9.09763 7.68342 9.09763 8.31658 8.70711 8.70711L2.34315 15.0711C1.95262 15.4616 1.31946 15.4616 0.928933 15.0711C0.538408 14.6805 0.538408 14.0474 0.928933 13.6569L6.58579 8L0.928932 2.34315C0.538407 1.95262 0.538407 1.31946 0.928932 0.928933C1.31946 0.538408 1.95262 0.538408 2.34315 0.928933L8.70711 7.29289ZM7 7L8 7L8 9L7 9L7 7Z" />
-                                                   </svg>
-                                               </a>
-                                           </div>
-                                           {% endif %}
-                                       </div> 
-                                       <!--PAGINATION-->
-                                       {% endif %}
+                                        {% if page_obj.has_previous %}
+                                        <div class="pagination__item">
+                                            <a href="?{% param_replace page=page_obj.previous_page_number %}" class="pagination__link">
+                                                <svg class="pagination__svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                                                    <path
+                                                        d="M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM2 7L1 7L1 9L2 9L2 7Z"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        {% endif %}
+                                        {% for i in page_range %}
+                                            {% if page_obj.number == i %}
+                                            <div class="pagination__item"><a href="?{% param_replace page=page_obj.number %}" class="pagination__link pagination__link--active">{{ page_obj.number }}</a></div>
+                                            {% else %}
+                                                {% if i == paginator.ELLIPSIS %}
 
+                                                <div class="pagination__item"><span class="page-link">{{ paginator.ELLIPSIS }}</span></div>
+
+                                                {% else %}
+
+                                                <div class="pagination__item"><a class="pagination__link" href="?{% param_replace page=i %}">{{ i }}</a></div>
+
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if page_obj.has_next %}
+                                        <div class="pagination__item">
+                                            <a href="?{% param_replace page=page_obj.next_page_number %}" class="pagination__link">
+                                                <svg class="pagination__svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                                                    <path
+                                                        d="M8.70711 7.29289C9.09763 7.68342 9.09763 8.31658 8.70711 8.70711L2.34315 15.0711C1.95262 15.4616 1.31946 15.4616 0.928933 15.0711C0.538408 14.6805 0.538408 14.0474 0.928933 13.6569L6.58579 8L0.928932 2.34315C0.538407 1.95262 0.538407 1.31946 0.928932 0.928933C1.31946 0.538408 1.95262 0.538408 2.34315 0.928933L8.70711 7.29289ZM7 7L8 7L8 9L7 9L7 7Z" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        {% endif %}
+                                        </div>
+                                        {% endif %}
+                                        <!--PAGINATION 3--> 
                                     </div>
                                 </div>
                             </div>

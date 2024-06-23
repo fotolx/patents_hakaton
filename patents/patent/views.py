@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import *
 from tablib import Dataset
 from django.views.generic import ListView, DetailView
+from .filters import *
+from .forms import *
 
 # Create your views here.
 def simple_upload(request):
@@ -40,31 +42,39 @@ def simple_upload(request):
     return render(request, template_name="patent/static.html", 
                   context={'message':False})
 
-class IndustrialDesignList(ListView):
-    model = IndustrialDesign
+
+class FilteredListView(ListView):
+    filterset_class = None
+
+    def get_queryset(self):
+        # Получите набор запросов, как обычно. Например:
+        queryset = super().get_queryset()
+        # Затем используйте параметры запроса и набор запросов,
+        # чтобы создать экземпляр набора фильтров и сохранить его как атрибут.
+        self.filterset = self.filterset_class(self.request.GET, queryset=queryset)
+        # Return the filtered queryset
+        return self.filterset.qs.distinct()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Передайте набор фильтров в шаблон — он обеспечивает форму.
+        context['filterset'] = self.filterset
+        return context
+
+
+class IndustrialDesignList(FilteredListView):
+    filterset_class = IndustrialDesignFilter
+    form_class = IndustrialDesignForm
+    # model = IndustrialDesign
     context_object_name = 'patents'
     template_name = 'template/doc-rf.html'
-    paginate_by = 10
+    paginate_by = 20
     # allow_empty = False
-    queryset = IndustrialDesign.objects.order_by('registration_number')
+    queryset = IndustrialDesign.objects.order_by('-registration_number')
     pass
 
     def get_context_data(self, **kwargs): 
         context = super().get_context_data(**kwargs)
         context['type'] = "Пром образец"
-    #     context['latest_info'] = dict(Person.objects.filter(pk__in=Person.objects.order_by().values('worker_id').annotate(max_id=Max('id')).values('max_id')).values_list('worker_id','dismiss'))
-    #     context['period_info'] = dict(Person.objects.filter(pk__in=Person.objects.order_by().values('worker_id').annotate(max_id=Max('id')).values('max_id')).values_list('worker_id','period'))
-    #     context['directors'] = Director.objects.all()
-    #     context['departments'] = Department.objects.all()
-    #     if len(context['latest_info']) == 0:
-    #         context['no_info'] = True
-    #     else:
-    #         context['no_info'] = False
-    #         context['successful_workers'] = sum(map(lambda x:x<=50, list(context['latest_info'].values())))
-    #         context['bad_workers'] = sum(map(lambda x:x>50, list(context['latest_info'].values())))
+        context['filter'] = IndustrialDesignFilter (self.request.GET, queryset=self.get_queryset())
         return context
-    # def get_paginate_by(self, queryset):
-    #     if self.template_name=='person_list.html':
-    #         return 10
-    #     else:
-    #         return 6
