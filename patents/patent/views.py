@@ -11,10 +11,21 @@ from openpyxl import load_workbook
 def inn_upload(request):
     if request.method == 'POST':
         dataset = Dataset()
-        inn_resource = request.FILES['modalfile']
-        wb = load_workbook(filename = 'empty_book.xlsx')
-        sheet_ranges = wb['range names']
-        # imported_data = dataset.load(inn_resource.read().decode('utf-8'),format='xlsx')  
+        inn_resource = request.FILES['modal-file']
+        wb = load_workbook(filename=inn_resource, read_only=True).active
+
+        # Читаем файл построчно 
+        inn_to_check = []
+        for row in wb.rows:
+            # new_obj = self.model(name=row[0].value, value=row[1].value)
+            inn_to_check.append(row[0].value)
+        
+        # for item in set(inn_to_check[1:]):
+
+        
+        return render(request, template_name="patent/doc-rf.html", context={'message':True, 'new':inn_to_check, 'inn_list':[]})
+
+    
         pass
     return render(request, template_name="patent/doc-rf.html", 
                     context={'message':False})

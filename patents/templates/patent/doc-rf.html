@@ -219,6 +219,51 @@
                                         <div class="table-inn thead-style">ИНН</div>
                                     </div>
                                     <div class="table-doc__tbody">
+                                        {% for patent in inn_list %}
+                                        <div class="table-doc__item">
+                                            <div class="table-doc__column-1">
+                                                <input type="checkbox" name="" class="table-doc-checked" id="doc-checked-1">
+                                                <label for="doc-checked-1" class="label-doc"></label>
+                                            </div>
+                                            <div class="table-doc__column-2">{{ forloop.counter }}</div>
+                                            <div class="table-doc__column-3">
+                                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_486_746)">
+                                                      <path d="M15.0543 7.5125C15.0543 7.5125 12.3543 2.5625 7.8543 2.5625C3.3543 2.5625 0.654297 7.5125 0.654297 7.5125C0.654297 7.5125 3.3543 12.4625 7.8543 12.4625C12.3543 12.4625 15.0543 7.5125 15.0543 7.5125ZM1.71 7.5125C2.14516 6.85111 2.64567 6.23512 3.204 5.6738C4.3623 4.5137 5.9463 3.4625 7.8543 3.4625C9.7623 3.4625 11.3454 4.5137 12.5055 5.6738C13.0638 6.23512 13.5643 6.85111 13.9995 7.5125C13.9473 7.5908 13.8897 7.6772 13.824 7.7717C13.5225 8.2037 13.077 8.7797 12.5055 9.3512C11.3454 10.5113 9.7614 11.5625 7.8543 11.5625C5.9463 11.5625 4.3632 10.5113 3.2031 9.3512C2.64478 8.78988 2.14427 8.17389 1.7091 7.5125H1.71Z" fill="#0154A6" />
+                                                      <path d="M7.85428 5.2623C7.25755 5.2623 6.68525 5.49936 6.26329 5.92131C5.84134 6.34327 5.60428 6.91557 5.60428 7.5123C5.60428 8.10904 5.84134 8.68134 6.26329 9.1033C6.68525 9.52525 7.25755 9.7623 7.85428 9.7623C8.45102 9.7623 9.02332 9.52525 9.44528 9.1033C9.86723 8.68134 10.1043 8.10904 10.1043 7.5123C10.1043 6.91557 9.86723 6.34327 9.44528 5.92131C9.02332 5.49936 8.45102 5.2623 7.85428 5.2623ZM4.70428 7.5123C4.70428 6.67687 5.03616 5.87566 5.6269 5.28492C6.21764 4.69418 7.01885 4.3623 7.85428 4.3623C8.68972 4.3623 9.49093 4.69418 10.0817 5.28492C10.6724 5.87566 11.0043 6.67687 11.0043 7.5123C11.0043 8.34774 10.6724 9.14895 10.0817 9.73969C9.49093 10.3304 8.68972 10.6623 7.85428 10.6623C7.01885 10.6623 6.21764 10.3304 5.6269 9.73969C5.03616 9.14895 4.70428 8.34774 4.70428 7.5123Z" fill="#0154A6" />
+                                                    </g>
+                                                    <defs>
+                                                      <clipPath id="clip0_486_746">
+                                                        <rect width="14.4" height="14.4" fill="white" transform="translate(0.654297 0.3125)" />
+                                                      </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                            <div class="table-doc__column-4">{{ patent.registration_number }}</div>
+                                            <div class="table-doc__column-5">{{ patent.industrial_design_name }}</div>
+                                            <div class="table-doc__column-6">{{ type }} </div>
+                                            <div class="table-doc__column-7">{{ patent.mkpo }}</div>
+                                            <div class="table-doc__column-8">
+                                            {% if patent.actual == 'true' %}
+                                                <span>
+                                                    <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <circle cx="2.32166" cy="2.03223" r="1.5" fill="#007F00" />
+                                                    </svg>
+                                                     Опубликован
+                                                </span>
+                                            {% else %}
+                                                <span class="istek">
+                                                    <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <circle cx="1.82166" cy="2.03223" r="1.5" fill="#626262"></circle>
+                                                    </svg>
+                                                     Истёк
+                                                </span>
+                                            {% endif %}
+                                            </div>
+                                            <div class="table-doc__column-9">{{ patent.paris_convention_priority_country_code }}</div>
+                                            <div class="table-doc__column-10">{{ patent.inn }}</div>
+                                        </div>
+                                        {% endfor %}
                                         {% for patent in object_list %}
                                         <div class="table-doc__item">
                                             <div class="table-doc__column-1">
