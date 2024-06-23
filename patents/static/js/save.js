@@ -1,22 +1,6 @@
-window.addEventListener('DOMContentLoaded', ()=> {
+document.addEventListener('DOMContentLoaded', ()=> {
     document.getElementById('sale-file').addEventListener('click', function () {
-        var selectedFormat = document.querySelector('input[name="format"]:checked');
-        if (!selectedFormat) {
-            alert('Вы не выбрали нужный формат');
-            return;
-        }
-    
-        var formatValue = selectedFormat.value;
-    
-        if (formatValue === 'xls') {
-            generateExcel();
-        } else if (formatValue === 'doc') {
-            alert('К сожалению в данный момент нельзя сохранить данные в формате doc');
-        } else if (formatValue === 'pdf') {
-            alert('К сожалению в данный момент нельзя сохранить данные в формате pdf');
-        } else {
-            alert('Выберите формат .xls для скачивания.');
-        }
+        generateExcel();
     });
     
     function generateExcel() {
