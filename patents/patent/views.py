@@ -10,23 +10,23 @@ from openpyxl import load_workbook
 
 def inn_upload(request):
     if request.method == 'POST':
-        dataset = Dataset()
         inn_resource = request.FILES['modal-file']
         wb = load_workbook(filename=inn_resource, read_only=True).active
 
         # Читаем файл построчно 
         inn_to_check = []
         for row in wb.rows:
-            # new_obj = self.model(name=row[0].value, value=row[1].value)
             inn_to_check.append(row[0].value)
-        
-        # for item in set(inn_to_check[1:]):
-
-        
-        return render(request, template_name="patent/doc-rf.html", context={'message':True, 'new':inn_to_check, 'inn_list':[]})
-
-    
-        pass
+        inn_list = []
+        inn_not_found = []
+        for item in set(inn_to_check[1:]):
+            if len(IndustrialDesign.objects.filter(inn=item)):
+                for rec in IndustrialDesign.objects.filter(inn=item):
+                    inn_list.append(rec)
+            else:
+                inn_not_found.append(item)
+        return render(request, template_name="patent/doc-rf.html", context={'message':True, 'new':inn_to_check, 'inn_list':inn_list,
+                                                                            'inn_not_found':inn_not_found})
     return render(request, template_name="patent/doc-rf.html", 
                     context={'message':False})
 

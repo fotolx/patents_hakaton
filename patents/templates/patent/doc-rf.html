@@ -264,6 +264,14 @@
                                             <div class="table-doc__column-10">{{ patent.inn }}</div>
                                         </div>
                                         {% endfor %}
+
+                                        {% if inn_not_found %}
+                                        <div class="table-doc__item">
+                                            Нет информации об ИНН:
+                                            {{ inn_not_found }}
+                                        </div>
+                                        {% endif %}
+
                                         {% for patent in object_list %}
                                         <div class="table-doc__item">
                                             <div class="table-doc__column-1">
