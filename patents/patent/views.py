@@ -4,8 +4,21 @@ from tablib import Dataset
 from django.views.generic import ListView, DetailView
 from .filters import *
 from .forms import *
+from openpyxl import load_workbook
 
 # Create your views here.
+
+def inn_upload(request):
+    if request.method == 'POST':
+        dataset = Dataset()
+        inn_resource = request.FILES['modalfile']
+        wb = load_workbook(filename = 'empty_book.xlsx')
+        sheet_ranges = wb['range names']
+        # imported_data = dataset.load(inn_resource.read().decode('utf-8'),format='xlsx')  
+        pass
+    return render(request, template_name="patent/doc-rf.html", 
+                    context={'message':False})
+
 def simple_upload(request):
     if request.method == 'POST':
         ind_resource = IndustrialDesignResource()

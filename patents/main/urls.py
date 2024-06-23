@@ -81,6 +81,7 @@ urlpatterns = [
     #path('upload/', login_required(simple_upload), name='upload'),
     path("subscribe/", TemplateView.as_view(template_name="patent/subscribe.html"), name='subscribe'),
     # path("doc-rf/", TemplateView.as_view(template_name="patent/doc-rf.html"), name='doc-rf'),
+    path("inn-check/", inn_upload, name='inn-check'),
     path("doc-rf/", IndustrialDesignList.as_view(template_name="patent/doc-rf.html"), name='doc-rf'),
     path("analitic-klas/", TemplateView.as_view(template_name="patent/analitic-klas.html"), name='analitic-klas'),
     # path("", TemplateView.as_view(template_name="patent/analitic-klas.html"), name='main'),
