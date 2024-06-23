@@ -215,30 +215,42 @@
                         </div>                   
 
                             <div class="date-account-body">
-                                <div class="nav-country">
-                                    <div class="nav-country__item">
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/20.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/21.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/22.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/23.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/24.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/25.svg' %}" class="nav-country__img"></div>
+                            div class="nav-country">
+                                <div class="nav-country__item">
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/20.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el" id="select-format">
+                                        <img src="{% static 'img/icon/21.svg' %}" class="nav-country__img">
+                                        <div class="format-doc">
+                                            <div class="format-doc__item">
+                                                <input type="radio" name="format" class="format-input" id="format-input-1" value="xls">
+                                                <label for="format-input-1" class="label-format">Скачать в формате .xls</label>
+                                            </div>
+                                            <div class="format-doc__item">
+                                                <input type="radio" name="format" class="format-input" id="format-input-2" value="doc">
+                                                <label for="format-input-2" class="label-format">Скачать в формате .doc</label>
+                                            </div>
+                                            <div class="format-doc__item">
+                                                <input type="radio" name="format" class="format-input" id="format-input-3" value="pdf">
+                                                <label for="format-input-3" class="label-format">Скачать в формате .pdf</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="nav-country__item">
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/26.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/27.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/28.svg' %}" class="nav-country__img" style="width: 11px;"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/29.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/30.svg' %}" class="nav-country__img"></div>
-                                        <div class="nav-country-el"><img src="{% static 'img/icon/31.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/22.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el">
+                                        <a href="#modal-search"><img src="{% static 'img/icon/23.svg' %}" class="nav-country__img"></a>
                                     </div>
-                                    <div class="nav-country__item">
-                                    <form method="GET">
-                                        {{ filterset.form.as_div }}
-                                        <input type="submit" value="Найти">
-                                       </form>
-                                    </div>
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/24.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el" id="sale-file"><img src="img/icon/25.svg" class="nav-country__img"></div>
                                 </div>
+                                <div class="nav-country__item">
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/26.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/27.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/28.svg' %}" class="nav-country__img" style="width: 11px;"></div>
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/29.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/30.svg' %}" class="nav-country__img"></div>
+                                    <div class="nav-country-el"><img src="{% static 'img/icon/31.svg' %}" class="nav-country__img"></div>
+                                </div>
+                            </div>
                                 <div class="table-doc">
                                     <div class="table-doc__thead">
                                         <div class="table-checked thead-style">
@@ -382,8 +394,23 @@
             </div>
         </div>
         <!-- MODAL-LOAD -->
+        <!-- MODAL-SEARCH -->
+         <div class="modal-search" id="modal-search">
+            <div class="modal-search-container">
+                <div class="modal-search-content">
+                    <div class="title-search">Поиск</div>
+                    <a href="#close" class="search-close" title="Закрыть"></a>
+                    <form method="GET">
+                        {{ filterset.form.as_div }}
+                        <input type="submit" value="Найти">
+                    </form>
+                </div>
+            </div>
+         </div>
+        <!-- MODAL-SEARCH -->
     </main>
     <script src="{% static 'js/open-menu.js' %}"></script>
+    <script src="{% static 'js/save.js' %}"></script>
 </body>
 
 </html>
