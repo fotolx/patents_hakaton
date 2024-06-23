@@ -46,7 +46,7 @@ anychart.onDocumentReady(function () {
             series.listen('pointClick', function (e) {
                 var pointId = e.point.get('id');
                 if (pointId === 'RU.MS') {
-                    window.location.href = 'region.html'; 
+                    window.location.href = '{% url "region" %}'; 
                 }
             });
 
